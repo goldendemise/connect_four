@@ -16,11 +16,13 @@ RSpec.describe 'GameBoard' do
   end
 
   describe '#place_checker' do
-    it 'places a piece  in the indicated column' do
+    it 'places a pieces vertically in the indicated column' do
       game_board = GameBoard.new
       board_grid = game_board.build_board
       game_board.place_checker(0, board_grid)
-      expect(board_grid).to eql([['', '', '', '', '', '', ''], ['', '', '', '', '', '', ''], ['', '', '', '', '', '', ''] ,['', '', '', '', '', '', ''] ,['', '', '', '', '', '', ''] ,['X', '', '', '', '', '', '']])
+      expect(board_grid[-1]).to eql(['X', '', '', '', '', '', ''])
+      game_board.place_checker(0, board_grid)
+      expect(board_grid[-2]).to eql(['X', '', '', '', '', '', ''])
     end
   end
 end

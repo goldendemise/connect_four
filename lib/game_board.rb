@@ -24,10 +24,11 @@ class GameBoard
     board
   end
 
-  def place_checker(column, board = connect_4_board)
+  def place_checker(column, game_board = board, player = 'X')
     (board.length - 1).downto(0) do |iter|
-      if board[iter][column] == ''
-        board[iter][column] = 'X' and break
+      if game_board[iter][column] == ''
+        game_board[iter][column] = player
+        break
       end
     end
   end
