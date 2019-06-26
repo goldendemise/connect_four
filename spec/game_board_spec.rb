@@ -25,4 +25,12 @@ RSpec.describe 'GameBoard' do
       expect(board_grid[-2]).to eql(['X', '', '', '', '', '', ''])
     end
   end
+
+  describe '#whose_turn' do
+    it 'returns red player if black is selected, and vise versa' do
+      game_board = GameBoard.new
+      expect(game_board.whose_turn('red')).to eql('black')
+      expect(game_board.whose_turn('black')).to eql('red')
+    end
+  end
 end

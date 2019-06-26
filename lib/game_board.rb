@@ -2,10 +2,11 @@
 
 class GameBoard
 
-  attr_accessor :board
+  attr_accessor :board, :player_turn
 
   def initialize
     @board = build_board
+    @player_turn = 'red'
   end
 
   def build_row
@@ -26,10 +27,14 @@ class GameBoard
 
   def place_checker(column, game_board = board, player = 'X')
     (board.length - 1).downto(0) do |iter|
-      if game_board[iter][column] == ''
+      if game_board[iter][column].empty?
         game_board[iter][column] = player
         break
       end
     end
+  end
+
+  def whose_turn(player = player_turn)
+    player == 'red' ? 'black' : 'red'
   end
 end
