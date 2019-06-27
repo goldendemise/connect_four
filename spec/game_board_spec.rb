@@ -20,9 +20,9 @@ RSpec.describe 'GameBoard' do
       game_board = GameBoard.new
       board_grid = game_board.build_board
       game_board.place_checker(0, board_grid)
-      expect(board_grid[-1]).to eql(['( )', '', '', '', '', '', ''])
+      expect(board_grid[-1]).to eql(['O', '', '', '', '', '', ''])
       game_board.place_checker(0, board_grid)
-      expect(board_grid[-2]).to eql(['( )', '', '', '', '', '', ''])
+      expect(board_grid[-2]).to eql(['O', '', '', '', '', '', ''])
     end
   end
 
@@ -37,7 +37,7 @@ RSpec.describe 'GameBoard' do
   describe '#player_piece' do
     it 'returns a red piece for player red, and a black piece otherwise' do
       game_board = GameBoard.new
-      expect(game_board.player_piece('red').to eql('( )'))
+      expect(game_board.player_piece('red')).to eql('O'.colorize(:red))
     end
   end
 end

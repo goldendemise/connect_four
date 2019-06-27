@@ -26,7 +26,7 @@ class GameBoard
     board
   end
 
-  def place_checker(column, game_board = board, player = '( )')
+  def place_checker(column, game_board = board, player = 'O')
     (board.length - 1).downto(0) do |iter|
       if game_board[iter][column].empty?
         game_board[iter][column] = player
@@ -40,7 +40,7 @@ class GameBoard
   end
 
   def player_piece(color = player_turn)
-    '( )'.colorize(color.to_sym)
+    'O'.colorize(color.to_sym)
   end
 end
 
