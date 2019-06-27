@@ -1,4 +1,5 @@
 # 7 Across, 6 deep is connect four
+require 'colorize'
 
 class GameBoard
 
@@ -25,7 +26,7 @@ class GameBoard
     board
   end
 
-  def place_checker(column, game_board = board, player = 'X')
+  def place_checker(column, game_board = board, player = '( )')
     (board.length - 1).downto(0) do |iter|
       if game_board[iter][column].empty?
         game_board[iter][column] = player
@@ -37,4 +38,11 @@ class GameBoard
   def whose_turn(player = player_turn)
     player == 'red' ? 'black' : 'red'
   end
+
+  def player_piece(color = player_turn)
+    '( )'.colorize(color.to_sym)
+  end
 end
+
+game = GameBoard.new
+puts game.player_piece
